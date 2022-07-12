@@ -1,10 +1,10 @@
-package by.glavdel.petclinic.model;
+package petclinic.model;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class PetType {
+public class PetType extends BaseEntity {
     private String name;
 }
