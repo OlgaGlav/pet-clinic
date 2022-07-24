@@ -1,19 +1,21 @@
-package petclinic.service.map;
+package petclinic.services.springdatajpa;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import petclinic.model.PetType;
-import petclinic.repository.PetTypeRepository;
-import petclinic.service.PetTypeService;
+import petclinic.repositories.PetTypeRepository;
+import petclinic.services.PetTypeService;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
+@Profile("springdatajpa")
+public class PetTypeJPAService implements PetTypeService {
 
-    private final PetTypeRepository petTypeRepository;
+    public final PetTypeRepository petTypeRepository;
 
-    public PetTypeMapService(PetTypeRepository petTypeRepository) {
+    public PetTypeJPAService(PetTypeRepository petTypeRepository) {
         this.petTypeRepository = petTypeRepository;
     }
 
@@ -25,11 +27,6 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
     }
 
     @Override
-    public void delete(PetType object) {
-        petTypeRepository.delete(object);
-    }
-
-    @Override
     public PetType findById(Long aLong) {
         return petTypeRepository.findById(aLong).orElse(null);
     }
@@ -37,6 +34,11 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
     @Override
     public PetType save(PetType object) {
         return petTypeRepository.save(object);
+    }
+
+    @Override
+    public void delete(PetType object) {
+        petTypeRepository.delete(object);
     }
 
     @Override

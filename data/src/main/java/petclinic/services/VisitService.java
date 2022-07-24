@@ -1,4 +1,4 @@
-package petclinic.service;
+package petclinic.services;
 
 
 import petclinic.model.Visit;

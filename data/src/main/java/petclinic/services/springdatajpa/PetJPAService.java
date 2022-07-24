@@ -1,10 +1,10 @@
-package petclinic.service.springdatajpa;
+package petclinic.services.springdatajpa;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import petclinic.model.Pet;
-import petclinic.repository.PetRepository;
-import petclinic.service.PetService;
+import petclinic.repositories.PetRepository;
+import petclinic.services.PetService;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,10 +1,11 @@
-package petclinic.service.map;
+package petclinic.services.map;
 
 import petclinic.model.BaseEntity;
 
 import java.util.*;
 
 public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+
     protected Map<Long, T> map = new HashMap<>();
 
     Set<T> findAll() {
@@ -16,6 +17,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
     }
 
     T save(T object) {
+
         if (object != null) {
             if (object.getId() == null) {
                 object.setId(getNextId());
